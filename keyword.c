@@ -1,4 +1,5 @@
 #define MAX_NAME 30
+#define N_KEYS	14 
 
 
 struct keytab {
@@ -7,7 +8,7 @@ struct keytab {
 	char name[MAX_NAME];	
 };
 
-struct keytab keywrds[13] = {
+struct keytab keywrds[N_KEYS] = {
 	
 	{0,"int"},
 	{0,"float"},
@@ -21,14 +22,15 @@ struct keytab keywrds[13] = {
 	{0, "void"},
 	{0, "default"},
 	{0, "char"},
-	{0, "do"}
+	{0, "do"},
+	{0, "scanf"}		//0은 몇번 나왔나 세는 것 
 };
 
 void count_word(char *word) {
 	
 	int i;
 	//for each keywords
-	for(i=0;i<13;i++)
+	for(i=0;i<N_KEYS;i++)
 	{
 		//if word= #i keyword
 		if(strncmp(word, keywrds[i].name, strlen(keywrds[i].name))==0)			//string을 10개까지 비교 
@@ -42,7 +44,7 @@ void print_word() {
 	
 	int i;
 	//#i keyword
-	for(i=0;i<13;i++)
+	for(i=0;i<N_KEYS;i++)
 	{	//printf("keyword name : count);
 		printf("%s : %i\n", keywrds[i].name, keywrds[i].nums);
 	}
